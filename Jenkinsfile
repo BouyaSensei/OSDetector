@@ -18,7 +18,7 @@ pipeline {
               }
         stage('Execution du code'){
             steps {
-                sh 'python os_detector.py'
+                sh 'python3.11 os_detector.py'
             }
         }
         stage('Setting permissions and running the script') {
