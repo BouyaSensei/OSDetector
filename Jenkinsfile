@@ -12,7 +12,8 @@ pipeline {
             steps {
                 sh 'sudo add-apt-repository ppa:deadsnakes/ppa -y'
                 sh 'sudo apt-get install -y python3.11'
-                sh 'curl -sS https://bootstrap.pypa.io/get-pip.py | sudo python3.11 get-pip.py'
+                sh 'curl -sS https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py'
+                sh 'sudo python3.11 /tmp/get-pip.py'
             }
               }
         stage('Execution du code'){
