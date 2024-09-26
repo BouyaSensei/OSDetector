@@ -2,12 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Get the Code !') {
+      stage('Clonage du dépôt GitHub') {
             steps {
                 git branch: 'main', url: 'https://github.com/csurqunix/OSDetector.git'
+                
             }
         }
-
+        stage('Installation de Python et de Pip'){
+            steps {
+                sh 'sudo apt-get install -y python3.11'
+                sh 'curl -sS https://bootstrap.pypa.io/get-pip.py | sudo python3.11'
+            }
+              }
+        stage('Execution du code'){
+            steps {
+                sh 'python os_detector.py'
+            }
+        }
         stage('Setting permissions and running the script') {
             steps {
                 sh 'chmod +x OSDetector.py'
