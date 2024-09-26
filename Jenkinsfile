@@ -11,7 +11,7 @@ pipeline {
         stage('Installation de Python et de Pip'){
             steps {
                 sh 'sudo apt-get install -y python3.11'
-                sh 'curl -sS https://bootstrap.pypa.io/get-pip.py | sudo python3.11'
+                sh 'curl -sS https://bootstrap.pypa.io/get-pip.py | sudo python3.11 get-pip.py'
             }
               }
         stage('Execution du code'){
